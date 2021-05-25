@@ -1,5 +1,17 @@
 <?php
 
+require_once __DIR__ . '/../src/Entity/IEntity.php';
+require_once __DIR__ . '/../src/Placeholder/Placeholder.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonMeetingPoint.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonInstructorName.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonSummaryHtml.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonSummary.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonStartDate.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonStartTime.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonEndTime.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonLink.php';
+require_once __DIR__ . '/../src/Placeholder/User/UserFirstName.php';
+
 require_once __DIR__ . '/../src/Entity/Instructor.php';
 require_once __DIR__ . '/../src/Entity/Lesson.php';
 require_once __DIR__ . '/../src/Entity/MeetingPoint.php';
@@ -13,27 +25,23 @@ require_once __DIR__ . '/../src/Repository/LessonRepository.php';
 require_once __DIR__ . '/../src/Repository/MeetingPointRepository.php';
 require_once __DIR__ . '/../src/TemplateManager.php';
 
-class TemplateManagerTest extends PHPUnit_Framework_TestCase
-{
+class TemplateManagerTest extends PHPUnit_Framework_TestCase {
     /**
      * Init the mocks
      */
-    public function setUp()
-    {
+    public function setUp() {
     }
 
     /**
      * Closes the mocks
      */
-    public function tearDown()
-    {
+    public function tearDown() {
     }
 
     /**
      * @test
      */
-    public function test()
-    {
+    public function test() {
         $faker = \Faker\Factory::create();
 
         $expectedInstructor = InstructorRepository::getInstance()->getById($faker->randomNumber());
@@ -62,7 +70,7 @@ L'équipe Ornikar
         $message = $templateManager->getTemplateComputed(
             $template,
             [
-                'lesson' => $lesson
+                'lesson' => $lesson,
             ]
         );
 
