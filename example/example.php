@@ -2,6 +2,18 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+require_once __DIR__ . '/../src/Entity/IEntity.php';
+require_once __DIR__ . '/../src/Placeholder/Placeholder.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonMeetingPoint.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonInstructorName.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonSummaryHtml.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonSummary.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonStartDate.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonStartTime.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonEndTime.php';
+require_once __DIR__ . '/../src/Placeholder/Lesson/LessonLink.php';
+require_once __DIR__ . '/../src/Placeholder/User/UserFirstName.php';
+
 require_once __DIR__ . '/../src/Entity/Instructor.php';
 require_once __DIR__ . '/../src/Entity/Lesson.php';
 require_once __DIR__ . '/../src/Entity/MeetingPoint.php';
@@ -34,11 +46,10 @@ $templateManager = new TemplateManager();
 $start_at = $faker->dateTimeBetween("-1 month");
 $end_at = $start_at->add(new DateInterval('PT1H'));
 
-
 $message = $templateManager->getTemplateComputed(
     $template,
     [
-        'lesson' => new Lesson($faker->randomNumber(), $faker->randomNumber(), $faker->randomNumber(), $start_at, $end_at)
+        'lesson' => new Lesson($faker->randomNumber(), $faker->randomNumber(), $faker->randomNumber(), $start_at, $end_at),
     ]
 );
 
