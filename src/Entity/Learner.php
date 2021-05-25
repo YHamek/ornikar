@@ -1,17 +1,23 @@
 <?php
 
-class Learner
-{
+class Learner implements IEntity {
+
     public $id;
     public $firstname;
     public $lastname;
     public $email;
 
-    public function __construct($id, $firstname, $lastname, $email)
-    {
+    public function __construct($id, $firstname, $lastname, $email) {
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
     }
+
+    public function getPlaceholders() {
+        return [
+            new UserFirstName($this),
+        ];
+    }
+
 }
