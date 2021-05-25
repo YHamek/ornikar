@@ -1,6 +1,6 @@
 <?php
 
-class Learner implements IEntity {
+class Learner extends Entity {
 
     public $id;
     public $firstname;
@@ -12,10 +12,14 @@ class Learner implements IEntity {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
+        parent::__construct();
     }
 
-    public function getPlaceholders() {
-        return [
+    protected function setRelations() {
+    }
+
+    protected function setPlaceholders() {
+        $this->placeholders = [
             new UserFirstName($this),
         ];
     }

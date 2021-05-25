@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../src/Entity/IEntity.php';
+require_once __DIR__ . '/../src/Entity/Entity.php';
 require_once __DIR__ . '/../src/Placeholder/Placeholder.php';
 require_once __DIR__ . '/../src/Placeholder/Lesson/LessonMeetingPoint.php';
 require_once __DIR__ . '/../src/Placeholder/Lesson/LessonInstructorName.php';

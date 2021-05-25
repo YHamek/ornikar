@@ -3,11 +3,11 @@
 abstract class Placeholder {
 
     /**
-     * @var IEntity
+     * @var Entity
      */
     protected $entity;
 
-    public function __construct(IEntity $entity) {
+    public function __construct(Entity $entity) {
         $this->entity = $entity;
     }
 

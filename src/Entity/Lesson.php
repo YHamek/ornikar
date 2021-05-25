@@ -1,6 +1,6 @@
 <?php
 
-class Lesson implements IEntity {
+class Lesson extends Entity {
 
     public $id;
     public $meetingPointId;
@@ -23,12 +23,16 @@ class Lesson implements IEntity {
         $this->instructorId = $instructorId;
         $this->start_time = $start_time;
         $this->end_time = $end_time;
+        parent::__construct();
+    }
+
+    protected function setRelations() {
         $this->meeting_point = MeetingPointRepository::getInstance()->getById($this->meetingPointId);
         $this->instructor = InstructorRepository::getInstance()->getById($this->instructorId);
     }
 
-    public function getPlaceholders() {
-        return [
+    protected function setPlaceholders() {
+        $this->placeholders = [
             new LessonMeetingPoint($this),
             new LessonInstructorName($this),
             new LessonSummaryHtml($this),

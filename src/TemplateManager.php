@@ -24,7 +24,7 @@ class TemplateManager {
         }
 
         foreach ($data as $entity) {
-            if ($entity instanceof IEntity) {
+            if ($entity instanceof Entity) {
                 $placeholders = $entity->getPlaceholders();
                 foreach ($placeholders as $placeholder) {
                     $key = $placeholder->getKey();
